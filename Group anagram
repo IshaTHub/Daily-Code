@@ -1,0 +1,37 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> res = new HashMap<>();
+        for (String s : strs) {
+            char[] charArray = s.toCharArray();
+            Arrays.sort(charArray);
+            String sortedS = new String(charArray);
+            res.putIfAbsent(sortedS, new ArrayList<>());
+            res.get(sortedS).add(s);
+        }
+        return new ArrayList<>(res.values());
+    }
+}
+
+
+JS
+function groupAnagrams(strs) {
+    // Initialize a hash map to store grouped anagrams
+    const map = new Map();
+
+    // Iterate through each word in the input array
+    for (let str of strs) {
+        // Sort the characters of the word to form the key
+        const sortedStr = str.split('').sort().join('');
+
+        // If the key is not in the hash map, add it with an empty list as its value
+        if (!map.has(sortedStr)) {
+            map.set(sortedStr, []);
+        }
+
+        // Append the original word to the list corresponding to the key
+        map.get(sortedStr).push(str);
+    }
+
+    // Return the values of the hash map as the grouped anagrams
+    return Array.from(map.values());
+}
