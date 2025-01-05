@@ -1,3 +1,7 @@
+// Leetcode
+// 875. Koko Eating Bananas
+// (Medium)
+
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int l = 1, r = (int) 1e9;
