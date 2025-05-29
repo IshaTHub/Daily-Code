@@ -13,3 +13,12 @@ console.log("N: " + N);
 let digits = extractDigits(N);
 console.log("Extracted Digits: " + digits.join(" "));
                             
+//optimal approach to count digit
+
+function countDigit(N){
+  if(N == 0){
+    return 1
+  }
+  let count = Math.floor(log10(N) + 1);
+  return count;
+}
